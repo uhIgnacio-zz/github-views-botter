@@ -1,7 +1,7 @@
-import requests, threading
+import requests, threading, os
 
-url = input('raw link: ')
-amount = input('enter the amount of threads (go for 300): ')
+url = os.environ['URL']
+amount = os.environ['amount']
 
 def thread():
   sent = 0

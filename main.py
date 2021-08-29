@@ -1,7 +1,7 @@
 import requests, threading, os
 
 url = os.environ['URL']
-amount = os.environ['amount']
+amount = os.environ['AMOUNT']
 
 def thread():
   sent = 0

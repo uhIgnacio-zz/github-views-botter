@@ -3,7 +3,7 @@ import requests, threading
 url = input('raw link: ')
 amount = input('enter the amount of threads (go for 300): ')
 
-def trol():
+def thread():
   sent = 0
   while True:    
       requests.get(url)
@@ -11,5 +11,5 @@ def trol():
       print(f'Views sent: %s' % sent)
 
 for _ in range(int(amount)):
-    t = threading.Thread(target=trol)
+    t = threading.Thread(target=thread)
     t.start()

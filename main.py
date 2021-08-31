@@ -2,9 +2,10 @@ import requests, threading
 
 url = input('raw link: ')
 amount = input('enter the amount of threads (go for 300): ')
+sent = 0
 
 def thread():
-  sent = 0
+  global sent
   while True:    
       requests.get(url)
       sent += 1

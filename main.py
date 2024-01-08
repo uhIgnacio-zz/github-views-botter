@@ -1,19 +1,21 @@
-import requests, threading, os
+import requests, threading
 
-url = input('raw link: ')
-amount = input('enter the amount of threads (go for 300): ')
+url = input('Enter your URL: ')
+threads = input('Enter the amount of threads:  ')
+
+sent = 0
 
 def thread():
+  global url
+  global sent
   while True:  
-     sent = 0
      r = requests.get(url)
-     if r.status_code == 403:
-         print('Invalid URL')
+     if not r.ok:
+         print('Failed to request URL.')
      else:
-      pass
-      sent += 1
-      print(f'Views sent: %s' % sent)
+       sent += 1
+       print(f'Successfully sent a request to {url}. ({str(sent)})')
 
-for _ in range(int(amount)):
+for _ in range(int(threads)):
     t = threading.Thread(target=thread)
     t.start()
